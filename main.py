@@ -1,13 +1,19 @@
 import msvcrt
 
-letters = ['a', 'b', 'c', 'd', 'e',
-           'f', 'g', 'h', 'i', 'j',
-           'k', 'l', 'm', 'n', 'o',
-           'p', 'q', 'r', 's', 't',
-           'u', 'v', 'w', 'x', 'y',
-           'z']
+import enigma_format as enfo
+import enigma_rotors as enro
 
-plugs = ['ws', 'rf', 'zh', 'bu', 'dc', 'gn', 'jm', 'ae']
+# rotor setup: [name, lettering, notch, turnover, notch_count]
+rotors = enro.m3_rotors
+
+letters = ['A', 'B', 'C', 'D', 'E',
+           'F', 'G', 'H', 'I', 'J',
+           'K', 'L', 'M', 'N', 'O',
+           'P', 'Q', 'R', 'S', 'T',
+           'U', 'V', 'W', 'X', 'Y',
+           'Z']
+
+plugs = ['WS', 'RF', 'ZH', 'BU', 'DC', 'GN', 'JM', 'AE']
 
 plugboard = {}
 
@@ -26,9 +32,15 @@ def enigma_execute(letter_in: bytes) -> str:
     return letter_out
 
 if __name__ == '__main__':
+    print(enfo.start_string)
+    input_list = []
+    output_list = []
     while True:
-        input = msvcrt.getch().decode("utf-8")
+        input = msvcrt.getch().decode("utf-8").upper()
         if input in letters:
-            print(enigma_execute(input))
+            input_list.append(input)
+            output_list.append(enigma_execute(input))
+            print(f"# INPUT : {''.join(input_list)}\n# OUTPUT: {''.join(output_list)}")
         else:
+            print(enfo.stop_string)
             break
