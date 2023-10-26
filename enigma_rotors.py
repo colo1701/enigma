@@ -1,3 +1,5 @@
+# rotor setup: [name, lettering, notch, turnover, notch_count]
+
 m3_rotors = {'ETW'  : ['ABCDEFGHIJKLMNOPQRSTUVWXYZ', '', '', 0],
              'I'    : ['EKMFLGDQVZNTOWYHXUSPAIBRCJ', 'Y', 'Q', 1],
              'II'   : ['AJDKSIRUXBLHWTMCQGZNPYFVOE', 'M', 'E', 1],

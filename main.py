@@ -3,7 +3,6 @@ import msvcrt
 import enigma_format as enfo
 import enigma_rotors as enro
 
-# rotor setup: [name, lettering, notch, turnover, notch_count]
 rotors = enro.m3_rotors
 
 letters = ['A', 'B', 'C', 'D', 'E',
